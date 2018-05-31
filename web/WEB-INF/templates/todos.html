@@ -1,0 +1,27 @@
+#parse("_header.html")
+
+<h1>Todos for $p.html($principal.name)</h1>
+<a href="logout">Logout</a><br>
+<br>
+#if( not $todos.empty)
+	<table class="table table-todo">
+		#foreach( $todo in $todos )
+			<tr>
+				<td>$p.html($todo.title)</td>
+				<td>$p.html($todo.text)</td>
+				<td><a href="todoEdit?todo=$todo.id">edit</a></td>
+				<td><a href="todoDelete?todo=$todo.id">delete</a></td>
+			</tr>
+		#end
+	</table>
+#else
+	<p>
+		You have no Todos.
+	</p>
+#end
+
+<p>
+	<a href="todoEdit">New Todo</a><br>
+</p>
+
+#parse("_footer.html")

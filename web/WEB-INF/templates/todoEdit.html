@@ -1,0 +1,25 @@
+#parse("_header.html")
+
+#if( $todo )
+	<h1>Edit Todo</h1>
+#else
+	<h1>New Todo</h1>
+#end
+
+#printErrors($errors)
+
+<form method="POST">
+	<p>
+		Title:<br>
+		<input type="text" name="title" value="$p.html($form.title)" autofocus/>
+	</p>
+	<p>
+		Text:<br>
+		<input type="text" name="text" value="$p.html($form.text)"/>
+	</p>
+	<p>
+		<button type="submit">Save</button> or <a href="todos">Cancel</a>
+	</p>
+</form>
+
+#parse("_footer.html")

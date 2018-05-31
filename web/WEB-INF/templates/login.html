@@ -1,0 +1,25 @@
+#parse("_header.html")
+
+<h1>Webby Todo Login</h1>
+
+<p>
+	#if( $reason == "notLoggedIn" )
+		You are not logged in, please log in.
+	#elseif( $reason == "logout" )
+		You have successfully logged out.
+	#end
+</p>
+
+#printErrors($errors)
+
+<form method="POST">
+	<p>
+		Name: (Alice or Bob)<br>
+		<input type="text" name="name" autofocus/>
+	</p>
+	<p>
+		<button type="submit">Login</button>
+	</p>
+</form>
+
+#parse("_footer.html")

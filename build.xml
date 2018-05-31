@@ -1,0 +1,55 @@
+
+<project name="webby-todo" default="rebuild-all" basedir=".">
+
+	<target name="init">
+		<property name="debug" value="true"/>
+	</target>
+	
+	<target name="clean" depends="init">
+		<delete dir="build"/>
+		<mkdir dir="build"/>
+	</target>
+
+	<target name="compile" depends="init" >
+		<mkdir dir="build/compile"/>
+		<javac destdir="build/compile" debug="${debug}" includeantruntime="false">
+			<classpath>
+				<fileset dir="web/WEB-INF/lib" includes="*.jar" />
+			</classpath>
+			<src path="src/main/java"/>
+		</javac>
+		<copy todir="build/compile" >
+			<fileset dir="src/main/java" excludes="**/*.java" />
+		</copy>
+	</target>
+	
+	<target name="jar" depends="init, compile">
+		<mkdir dir="build/jar"/>
+		<jar jarfile="build/jar/webby-todo.jar">
+			<fileset dir="build/compile" />
+		</jar>
+	</target>
+
+	<target name="war" depends="init, jar" >
+		<war destfile="build/webby-todo.war">
+			<fileset dir="web" excludes="**/classes/**" />			
+			<lib file="build/jar/webby-todo.jar" />
+		</war>
+	</target>
+	
+	
+	<target name="rebuild-all" depends="init, clean, war" />
+
+	<target name="update-webby" depends="init">
+		<delete>
+			<fileset dir="web/WEB-INF/lib" includes="webby*.jar" />
+			<fileset dir="src" includes="webby*.jar" />
+		</delete>
+		<copy todir="web/WEB-INF/lib">
+			<fileset dir="../webby/build/" includes="webby*.jar" excludes="webby*-src.jar" />
+		</copy>
+		<copy todir="src">
+			<fileset dir="../webby/build/" includes="webby*-src.jar" />
+		</copy>
+	</target>
+</project>

@@ -1,0 +1,12 @@
+
+
+#macro( printErrors, $errors )
+	#if( $errors )
+		<div style="color: red;">
+			<em>Error:</em>
+			#foreach( $error in $errors )
+				$p.html($error)<br>
+			#end
+		</div>
+	#end
+#end

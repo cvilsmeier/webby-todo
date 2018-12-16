@@ -1,4 +1,4 @@
-package org.webby.todo;
+package org.webby.todo.util;
 
 public abstract class Must {
 

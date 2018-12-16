@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app>
+<web-app version="4.0">
 
 	<display-name>webby-todo</display-name>
 
@@ -16,7 +16,7 @@
 		<load-on-startup>1</load-on-startup>
 		<init-param>
 			<param-name>appClass</param-name>
-			<param-value>org.webby.todo.MyApp</param-value>
+			<param-value>org.webby.todo.TodoApp</param-value>
 		</init-param>
 		<multipart-config>
 			<max-file-size>10485760</max-file-size>
@@ -28,5 +28,15 @@
 		<servlet-name>webby-todo</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
+
+	<!-- configure slf4j simpleLogger -->
+	<context-param>
+		<param-name>org.slf4j.simpleLogger.logFile</param-name>
+		<param-value>System.out</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.slf4j.simpleLogger.defaultLogLevel</param-name>
+		<param-value>debug</param-value>
+	</context-param>
 
 </web-app>

@@ -6,6 +6,10 @@ A Sample Todo App built with [https://github.com/cvilsmeier/webby]
 ## Changelog
 
 
+### 2.0.0
+- upgrade webby to v2.0.0
+
+
 ### 1.0.0
 - initial release
 

@@ -36,8 +36,7 @@
 			<lib file="build/jar/webby-todo.jar" />
 		</war>
 	</target>
-	
-	
+		
 	<target name="rebuild-all" depends="init, clean, war" />
 
 	<target name="update-webby" depends="init">
@@ -47,6 +46,7 @@
 		</delete>
 		<copy todir="web/WEB-INF/lib">
 			<fileset dir="../webby/build/" includes="webby*.jar" excludes="webby*-src.jar" />
+			<fileset dir="../webby/lib/" includes="*.jar"/>
 		</copy>
 		<copy todir="src">
 			<fileset dir="../webby/build/" includes="webby*-src.jar" />

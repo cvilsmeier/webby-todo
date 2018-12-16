@@ -1,10 +1,6 @@
 package org.webby.todo;
 
-import java.io.Serializable;
-
-public class Principal implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Principal {
 
 	private final String accountId;
 	private final String name;

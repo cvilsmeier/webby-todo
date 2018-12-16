@@ -3,14 +3,16 @@ package org.webby.todo;
 import java.time.Instant;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.webby.WebRequest;
 import org.webby.todo.db.Db;
 import org.webby.todo.db.Todo;
+import org.webby.todo.util.Must;
 
 public class TodoController {
 
-	private final Logger logger = Logger.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private final Db db;
 	
 	public TodoController(Db db) {

@@ -1,26 +1,23 @@
 package org.webby.todo;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.webby.App;
 import org.webby.AppContext;
 import org.webby.WebRequest;
 import org.webby.todo.db.Db;
 import org.webby.todo.db.MemoryDb;
 
-public class MyApp implements App {
+public class TodoApp implements App {
 
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private final Db db;
 	private final IndexController indexController;
 	private final LoginController loginController;
 	private final TodoController todoController;
 
-	public MyApp(AppContext appContext) throws Exception {
-		// initialize log4j
-		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.DEBUG);
-		Logger.getLogger("org.apache").setLevel(Level.INFO);
+	public TodoApp(AppContext appContext) throws Exception {
+		logger.info("app startup");
 		// initialize database
 		this.db = new MemoryDb();
 		// create controllers
@@ -62,6 +59,7 @@ public class MyApp implements App {
 
 	@Override
 	public void destroy() {
+		logger.info("app shutdown");
 		// nothing to do
 		//
 		// in real-world apps, we could close the database

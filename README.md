@@ -5,6 +5,9 @@ A Sample Todo App built with [https://github.com/cvilsmeier/webby]
 
 ## Changelog
 
+### 2.0.1
+- upgrade webby to v2.0.1
+
 
 ### 2.0.0
 - upgrade webby to v2.0.0
@@ -12,7 +15,6 @@ A Sample Todo App built with [https://github.com/cvilsmeier/webby]
 
 ### 1.0.0
 - initial release
-
 
 
 ## Author
